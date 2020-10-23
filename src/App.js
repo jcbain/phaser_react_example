@@ -1,4 +1,5 @@
 import React, { useState }  from 'react';
+import {Route, BrowserRouter as Router, Link, Switch} from 'react-router-dom'
 import Game from './Game';
 import useLoadedGame from './hooks/useLoadedGame'
 
@@ -13,12 +14,8 @@ function App() {
   }
   return (
     <div className="App">
-      <h1>hello</h1>
-      <button onClick={onclick}>{counter}</button>
       <Game initialized={loaded}/>
-      
-      
-
+      <button onClick={onclick}>{counter}</button>
     </div>
   );
 }
