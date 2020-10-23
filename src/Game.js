@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import Phaser from 'phaser';
 
 // import ExampleScene from "./scenes/examplescene";
 
-const Button = () => {
-    const [ counter, setCounter ] = useState(0)
-    return (
-        <button onClick={() => setCounter(prev => prev + 1)}>
-            {counter}
-        </button>
-    )
-}
 
-const Game = () => {
+
+const Game = ({initialized}) => {
 
     function preload () {
         this.load.setBaseURL('http://labs.phaser.io');
@@ -46,7 +39,7 @@ const Game = () => {
         physics: {
             default: 'arcade',
             arcade: {
-                gravity: { y: 300 }
+                gravity: { y: 100 }
             }
         },
         scene: {
@@ -54,18 +47,20 @@ const Game = () => {
             create: create
         }
     }
-
-    useEffect(() => {
-
-        new Phaser.Game(config)
+    const game = useCallback(() => {
+        if(!initialized){
+            new Phaser.Game(config)
+        }
 
     }, [config])
 
+
+    useEffect(() => {
+        game()
+    }, [config])
+
     return (
-        <>
         <div id="phaser-game" />
-        <Button />
-        </>
     )
 }
 
