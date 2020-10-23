@@ -10,5 +10,5 @@ export default class ExampleScene extends Scene {
 
     text.setInteractive({ useHandCursor: true });
 
-}
+    }
 }
