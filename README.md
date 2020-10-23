@@ -1,5 +1,7 @@
 # React Phaser App
 
+This is a POC
+
 Ripped from [here](https://github.com/bschulte/phaser3-react-example) but not in TypeScript
 
 Creates an example scene inside a react component using `useEffect`
