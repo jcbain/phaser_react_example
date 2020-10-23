@@ -1,7 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-import ExampleScene from "./scenes/examplescene";
+// import ExampleScene from "./scenes/examplescene";
+
+const Button = () => {
+    const [ counter, setCounter ] = useState(0)
+    return (
+        <button onClick={() => setCounter(prev => prev + 1)}>
+            {counter}
+        </button>
+    )
+}
 
 const Game = () => {
 
@@ -11,7 +20,6 @@ const Game = () => {
         this.load.image('logo', 'assets/sprites/phaser3-logo.png');
         this.load.image('red', 'assets/particles/red.png');
     }
-
 
     function create () {
         this.add.image(400, 300, 'sky');
@@ -32,14 +40,13 @@ const Game = () => {
 
     const config = {
         type: Phaser.AUTO,
-        width: 800,
-        height:800,
+        width:  800,
+        height: 800,
         parent: "phaser-game",
-        // scene: [ExampleScene]
         physics: {
             default: 'arcade',
             arcade: {
-                gravity: { y: 200 }
+                gravity: { y: 300 }
             }
         },
         scene: {
@@ -51,9 +58,15 @@ const Game = () => {
     useEffect(() => {
 
         new Phaser.Game(config)
-    }, [])
 
-    return <div id="phaser-game" />
+    }, [config])
+
+    return (
+        <>
+        <div id="phaser-game" />
+        <Button />
+        </>
+    )
 }
 
 export default Game;
