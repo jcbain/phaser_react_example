@@ -1,10 +1,6 @@
 import React, { useEffect, useCallback } from 'react';
 import Phaser from 'phaser';
 
-// import ExampleScene from "./scenes/examplescene";
-
-
-
 const Game = ({initialized}) => {
 
     function preload () {

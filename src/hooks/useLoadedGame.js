@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useLoadedGame = (stuff) => {
+const useLoadedGame = () => {
     const [ loaded, setLoaded ] = useState(false);
 
     useEffect(() => {
