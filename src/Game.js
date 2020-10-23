@@ -53,7 +53,7 @@ const Game = ({initialized}) => {
 
     useEffect(() => {
         game()
-    }, [config])
+    }, [])
 
     return (
         <div id="phaser-game" />
